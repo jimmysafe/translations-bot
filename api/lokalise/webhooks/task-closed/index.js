@@ -1,3 +1,3 @@
-export default function handler(req, res) {
-  console.log(res);
+export default function handler(request, response) {
+  return response.send(`Hello`);
 }
