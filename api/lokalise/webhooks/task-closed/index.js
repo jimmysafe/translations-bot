@@ -1,6 +1,8 @@
 export default function handler(req, res) {
-  const { name = "World" } = req.query;
+  if (req.method !== "POST") {
+    return res.status(405).json({ message: "Method Not Allowed" });
+  }
   return res.json({
-    message: `Hello ${name}!`,
+    message: `Hello World!`,
   });
 }
