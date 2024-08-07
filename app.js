@@ -9,8 +9,9 @@ module.exports = (app) => {
   // node_modules/.bin/probot receive -e issues -p ./test ./app.js
 
   app.onAny(async (context) => {
-    const log = util.inspect(context, { showHidden: false, depth: null });
-    console.log(log);
+    // const log = util.inspect(context, { showHidden: false, depth: null });
+    // console.log(log);
+    console.log(JSON.stringify(context, null, 2));
   });
 
   // app.on("issues.opened", async (context) => {
