@@ -7,7 +7,7 @@ module.exports = (app) => {
   // node_modules/.bin/probot receive -e issues -p ./test ./app.js
 
   app.onAny(async (context) => {
-    console.log("CONTEXT: ", context);
+    console.log("CONTEXT: ", context.payload);
   });
 
   // app.on("issues.opened", async (context) => {
