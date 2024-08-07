@@ -4,15 +4,21 @@
 module.exports = (app) => {
   app.log("Yay! The app was loaded!");
 
-  app.on("issues.opened", async (context) => {
-    const res = await context.octokit.issues.createComment(
-      context.issue({ body: "Hello, World!" })
-      // creo task
-      // task creato -> aggiorno commento
-    );
-    console.log(res);
-    return res;
+  // node_modules/.bin/probot receive -e issues -p ./test ./app.js
+
+  app.onAny(async (context) => {
+    console.log("CONTEXT: ", context);
   });
+
+  // app.on("issues.opened", async (context) => {
+  //   const res = await context.octokit.issues.createComment(
+  //     context.issue({ body: "Hello, World!" })
+  //     // creo task
+  //     // task creato -> aggiorno commento
+  //   );
+  //   console.log(res);
+  //   return res;
+  // });
 };
 
 // On open PR -> crea commento con tabella. in META ID COMMENTO.
